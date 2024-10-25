@@ -1,0 +1,13 @@
+<div class="w-full flex flex-col items-center">
+  <h1 class="my-5 text-2xl font-semibold">posts - <%= @posts.length %></h1>
+
+  <div class="space-y-5">
+    <% @posts.each do |post| %>
+    <div class="bg-gray-950 text-white w-96 p-5 rounded-lg">
+      <h2><%= post.title %></h2>
+      <p><%= post.description %></p>
+      <p><%= post.format_date %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
