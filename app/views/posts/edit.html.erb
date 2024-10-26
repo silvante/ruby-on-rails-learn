@@ -1,30 +1,23 @@
 <div class="w-full flex items-center flex-col">
-    <h1 class="my-5 text-2xl font-semibold">Edit your Post</h1>
-    <%= form_with model: @post, url: posts_path do |form| %>
-    <div class="space-y-3">
-      <div class="flex flex-col w-80">
-        <%= form.label :title %>
-        <input
-          type="text"
-          name="title"
-          value="<%= @post[:title] %>"
-          class="border-2 border-gray-950 outline-none rounded-lg py-2 px-3"
-        />
-      </div>
-  
-      <div class="flex flex-col w-80">
-        <%= form.label :description %>
-        <input
-        type="text"
-          name="description"
-          value="<%= @post[:description] %>"
-          class="border-2 border-gray-950 outline-none rounded-lg py-2 px-3 resize-none"
-        ></input>
-      </div>
-  
-      <div class="flex flex-col w-80 bg-gray-950 text-white py-2 rounded-lg">
-        <%= form.submit "Create Post" %>
-      </div>
+  <% content_for :title, @post[:title] + " # edit" %>
+  <h1 class="my-5 text-2xl font-semibold">Edit your Post</h1>
+  <%= form_with model: @post, url: posts_path(@post), method: :patch do |form| %>
+  <div class="space-y-3">
+    <div class="flex flex-col w-80">
+      <%= form.label :title %> <%= form.text_field :title, class: "border-2
+      border-gray-950 outline-none rounded-lg py-2 px-3" %>
     </div>
-    <% end %>
+
+    <div class="flex flex-col w-80">
+      <%= form.label :description %> <%= form.text_area :description, class:
+      "border-2 border-gray-950 outline-none rounded-lg py-2 px-3 resize-none"
+      %>
+    </div>
+
+    <div class="flex flex-col w-80 bg-gray-950 text-white py-2 rounded-lg">
+      <%= form.submit "Update Post" %>
+    </div>
   </div>
+  <% end %>
+  <%= render "smile" %>
+</div>
