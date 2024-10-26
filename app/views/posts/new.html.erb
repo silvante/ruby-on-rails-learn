@@ -1,6 +1,6 @@
 <div class="w-full flex items-center flex-col">
   <h1 class="my-5 text-2xl font-semibold">Create new Post</h1>
-  <%= form_with model: @post, url: posts_path do |form| %>
+  <%= form_with model: @post, url: edit_post_path do |form| %>
   <div class="space-y-3">
     <div class="flex flex-col w-80">
       <%= form.label :title %>

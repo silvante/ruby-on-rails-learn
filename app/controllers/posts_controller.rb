@@ -15,11 +15,22 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    render plain: params
   end
   
   def edit
     @post = Post.find_by id: params[:id]
   end
+
+  def update
+    @post = Post.find_by id: params[:id]
+    if @post.update get_post_data
+      redirect_to post_path
+    else
+      render :new
+    end
+  end
   
+  def get_post_data
+    params.require(:post).permit(:tite, :description)
+  end
 end
