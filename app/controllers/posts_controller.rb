@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   def index
     @title = "All Posts"
     @posts = Post.all
-  end 
+  end
+
+  def show
+    @post = Post.find_by id: params[:id]
+
+    render plain: @post
+  end
 
   def new
     @post = Post.all
