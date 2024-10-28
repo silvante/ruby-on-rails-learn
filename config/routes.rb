@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :multitudes
   resources :users
 
   root 'pages#index'
