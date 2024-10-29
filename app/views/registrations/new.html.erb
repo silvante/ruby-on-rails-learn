@@ -1,0 +1,30 @@
+<h1>sing up</h1>
+
+<%= form_with model: @user, url: registration_path do |form| %>
+    <%= if form.object.errors.any? %>
+        <% from.object.errors.full_messages.each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <div>
+        <%= formf.label :email, "email" %>
+        <%= form.email_field :email %>
+    </div>
+
+    <div>
+        <%= formf.label :password, "password" %>
+        <%= form.password_field :password %>
+    </div>
+
+    <div>
+        <%= formf.label :password_confirmation, "password_confirmation" %>
+        <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div>
+        <%= formf.submit "Registrate" %>
+    </div>
+<% end %>

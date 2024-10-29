@@ -29,6 +29,17 @@
       <a href="/">
         <h1 class="text-xl font-semibold">Home</h1>
       </a>
+      <div>
+        <p>
+          <% if user_signed_in? %>
+            <%= link_to "edit password", edit_password_path %>
+            <%= button_to "log out", session_path, method: :delete %>
+          <% else %>
+            <%= link_to "sign up", new_registration_path %>
+            <%= link_to "log in", new_session_path %>
+          <% end %>
+        </p>
+      </div>
       <nav class="flex gap-5 items-center">
         <%= link_to "Posts", posts_path %> <%= link_to "Multitudes",
         multitudes_path %> <%= link_to "add new post", new_post_path %>
