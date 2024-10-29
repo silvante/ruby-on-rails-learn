@@ -7,7 +7,11 @@ module.exports = {
     "./app/views/**/*",
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        base: "1000px"
+      }
+    },
   },
   plugins: [],
 };
