@@ -32,8 +32,8 @@
       <div>
         <p>
           <% if user_signed_in? %>
-            <%= link_to "edit password", edit_password_path %>
-            <%= button_to "log out", session_path, method: :delete %>
+            <%= link_to "edit password", edit_password_path(current_user) %>
+            <%= button_to "log out", session_path(current_user), method: :delete %>
           <% else %>
             <%= link_to "sign up", new_registration_path %>
             <%= link_to "log in", new_session_path %>

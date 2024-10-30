@@ -1,6 +1,18 @@
-<h1>sing up</h1>
+<h1>edit password</h1>
 
-<%= form_with model: @user, url: registrations_path do |form| %>
+<% if flash[:notice] %>
+  <div class="notice">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+<%= form_with model: current_user, url: password_path do |form| %>
     <% if form.object.errors.any? %>
     <div>
       <h2><%= pluralize(form.object.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -13,12 +25,12 @@
   <% end %>
 
     <div>
-        <%= form.label :email, "email" %>
-        <%= form.email_field :email %>
+        <%= form.label :password_chalenge, "enter perevious password" %>
+        <%= form.password_field :password_chalenge %>
     </div>
 
     <div>
-        <%= form.label :password, "password" %>
+        <%= form.label :password, "new password" %>
         <%= form.password_field :password %>
     </div>
 
@@ -28,6 +40,6 @@
     </div>
 
     <div>
-        <%= form.submit "Registrate" %>
+        <%= form.submit "updated password" %>
     </div>
 <% end %>

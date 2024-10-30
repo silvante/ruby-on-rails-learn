@@ -1,11 +1,16 @@
-class ResgestrationsController < ApplicationController
+class RegistrationsController < ApplicationController
   def new
-    @user User.new
+    @user = User.new
   end
 
   def create
-    @user = User.new(registration_params)
-    if user.save
+    if registration_params[:password] == registration_params[:password_confirmation]
+      @user = User.new(registration_params)
+    else
+      render :new, status: :unprocessable_entity
+    end
+
+    if @user.save
       login @user
       redirect_to root_path
     else
@@ -16,6 +21,6 @@ class ResgestrationsController < ApplicationController
   private
 
   def registration_params
-    params.require(:user).permit(:email, :password, :password_password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

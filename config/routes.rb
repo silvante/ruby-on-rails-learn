@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :multitudes
   resources :session
-  resources :registration
+  resources :registrations
   resources :ressword_reset
-  resources :password
+  resources :passwords
 
   root 'main#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

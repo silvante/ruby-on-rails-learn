@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def authinticate_user
+    redirect_to root_path, alert: "you must be logged in!" unless user_signed_in?
+  end
+  
+
   def current_user
     Current.user ||= authenticate_user_from_session
   end
