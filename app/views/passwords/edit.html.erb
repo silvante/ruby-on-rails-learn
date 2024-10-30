@@ -43,3 +43,24 @@
         <%= form.submit "updated password" %>
     </div>
 <% end %>
+
+<!-- <%= form_with(model: @user, url: password_path) do |form| %>
+  <div>
+    <%= form.label :password_challenge, "Current Password" %>
+    <%= form.password_field :password_challenge %>
+  </div>
+
+  <div>
+    <%= form.label :password, "New Password" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation, "Confirm New Password" %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Password" %>
+  </div>
+<% end %> -->
