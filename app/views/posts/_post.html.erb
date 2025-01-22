@@ -1,0 +1,19 @@
+<div id="<%= dom_id post %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= post.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Desc:</strong>
+    <%= post.desc %>
+  </p>
+
+  <% if post.image.attached? %>
+    <%= image_tag post.image, alt: 'post.image' %>
+  <% end %>
+
+  <% if post.video.attached? %>
+    <%= video_tag post.video, alt: 'post.video', controls: true %>
+  <% end %>
+</div>
