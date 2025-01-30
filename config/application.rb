@@ -10,8 +10,6 @@ module Cess
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
-    config.hosts << "assembly:3000"
-    config.hosts << "admin.localhost"
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -28,5 +26,6 @@ module Cess
 
     # sidekiq config
     config.active_job.queue_adapter = :sidekiq
+    config.hosts ||= nil
   end
 end
