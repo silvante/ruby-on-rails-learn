@@ -12,4 +12,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+
+  constraints(lambda { |req| req.subdomain == "admin" }) do
+    namespace :admin do
+    end
+
+    get "/", to: "admin#index" # Admin root path
+  end
 end
