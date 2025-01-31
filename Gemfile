@@ -68,3 +68,4 @@ gem "sidekiq"
 gem "image_processing"
 gem "mini_magick"
 gem "streamio-ffmpeg"
+gem 'lucide-rails', '~> 0.5.1'
