@@ -169,7 +169,9 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    mini_magick (5.1.0)
+    mini_magick (5.1.2)
+      benchmark
+      logger
     mini_mime (1.1.5)
     minitest (5.25.4)
     msgpack (1.7.5)
