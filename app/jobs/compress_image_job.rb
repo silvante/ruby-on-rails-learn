@@ -12,7 +12,7 @@ class CompressImageJob < ApplicationJob
 
       image = MiniMagick::Image.read(io)
       image.format("jpeg")
-      image.resize "700x700"
+      image.resize "720x720"
       image.quality(50)
 
       processed_io = StringIO.new(image.to_blob)
