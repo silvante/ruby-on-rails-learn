@@ -17,6 +17,8 @@ class CompressImageJob < ApplicationJob
 
       processed_io = StringIO.new(image.to_blob)
 
+      post.image.purge
+
       post.image.attach(io: processed_io, filename: post.image.filename.to_s, content_type: post.image.content_type)
 
       Rails.logger.info("MiniMagick processed successfully")
